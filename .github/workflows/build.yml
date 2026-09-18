@@ -8,15 +8,15 @@ jobs:
       - uses: actions/setup-java@v4
         with:
           java-version: '17'
-          distribution: 'temurin'
-      - uses: android-actions/setup-android@v3
-      - run: chmod +x./gradlew || true
-      - run: |
-          if [! -f "./gradlew" ]; then
-            gradle wrapper --gradle-version 8.5
-          fi
-         ./gradlew :app:assembleDebug --stacktrace
-      - uses: actions/upload-artifact@v4
+          distribution: temurin
+      - name: Setup Android
+        uses: android-actions/setup-android@v3
+      - name: Make gradlew
+        run: gradle wrapper --gradle-version 8.5
+      - name: Build
+        run:./gradlew :app:assembleDebug
+      - name: Upload APK
+        uses: actions/upload-artifact@v4
         with:
           name: Jarvis-APK
-          path: app/build/outputs/apk/debug/*.apk
+          path: app/build/outputs/apk/debug/app-debug.apk
