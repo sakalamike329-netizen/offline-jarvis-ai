@@ -1,7 +1,0 @@
-dependencies {
-    implementation 'androidx.core:core-ktx:1.12.0'
-    implementation 'com.google.android.material:material:1.11.0'
-    implementation 'org.nanohttpd:nanohttpd:2.3.1' // tiny http server 80KB
-    implementation 'net.alphaceph:vosk-android:0.3.45' // Vosk offline STT
-    implementation 'de.kherud:llama:3.0.0' // Llama.cpp
-}
